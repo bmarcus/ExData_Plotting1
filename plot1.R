@@ -32,5 +32,5 @@ hist(newFile$Global_active_power,
         col="Red")
 
 # copy plot to png file
-dev.copy(png,"./plot.png")
+dev.copy(png,"./plot.png",width=480, height=480)
 dev.off()
