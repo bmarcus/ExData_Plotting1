@@ -2,8 +2,7 @@
 # Exploratory Data Analysis - Project 1 - Plot 1
 #######################################################
 library(data.table)
-library(dplyr)
-library(lubridate)
+
 
 # Download the raw data file (zipped)
 download.file(url = "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip",
