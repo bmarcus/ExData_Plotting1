@@ -14,18 +14,18 @@ download.file(url = "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhouse
 unzip(zipfile = "./RAW_DATA/household_power_consumption.zip", exdir="./RAW_DATA")
 
 # Read in the unzipped data file and put in tibble
-newFile <- fread("./RAW_DATA/household_power_consumption.txt", na.strings = "?")
+energyDT <- fread("./RAW_DATA/household_power_consumption.txt", na.strings = "?")
 
 # cast Date column as date datatype to be used later for date comparison.
-newFile[,Date := as.Date(Date, format = "%d/%m/%Y")]
+energyDT[,Date := as.Date(Date, format = "%d/%m/%Y")]
 
 # filter based on dates between 02-01-2007 and 02-02-2007
-newFile <- filter(newFile, 
+energyDT <- filter(energyDT, 
         Date >= ymd("2007-02-01"), 
         Date <= ymd("2007-02-02"))
 
 # plot Global Active Power / Frequency
-hist(newFile$Global_active_power,  
+hist(energyDT$Global_active_power,  
         main="Global Active Power", 
         xlab="Global Active Power (kilowatts)", 
         ylab="Frequency", 
